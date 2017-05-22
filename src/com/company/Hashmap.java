@@ -41,11 +41,12 @@ public class Hashmap<K,V> {
         return null;
     }
 
-    public static void main(String[] args) {
-
-	// write your code here
-
-
+    public boolean exists(K key) throws IllegalArgumentException{
+        if(key == null) throw new IllegalArgumentException();
+        int index = Math.abs(key.hashCode())%entryList.length;
+        for(HashmapEntry entry : entryList[index])
+            if(entry.key.equals(key))   return true;
+        return false;
     }
 
     class HashmapEntry{
