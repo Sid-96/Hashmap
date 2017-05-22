@@ -7,13 +7,13 @@ public class Hashmap<K,V> {
     ArrayList<HashmapEntry>[] entryList;
     static final int DEFAULT_SIZE = 10;
 
-    Hashmap(int size) throws IllegalArgumentException{
+    public Hashmap(int size) throws IllegalArgumentException{
         if(size==0) throw new IllegalArgumentException();
         entryList = new ArrayList[size];
         for(int i=0 ; i<size ; i++) entryList[i] = new ArrayList<HashmapEntry>();
     }
 
-    Hashmap(){
+    public Hashmap(){
         entryList = new ArrayList[DEFAULT_SIZE];
         for(int i=0 ; i<DEFAULT_SIZE ; i++) entryList[i] = new ArrayList<HashmapEntry>();
     }
