@@ -30,7 +30,16 @@ public class Hashmap<K,V> {
         entryList[index].add(new HashmapEntry(key,value));
         return;
     }
-    
+
+    public V get(K key) throws IllegalArgumentException{
+        if (key == null)
+            throw new IllegalArgumentException();
+        int index = Math.abs(key.hashCode())%entryList.length;
+        for(HashmapEntry entry : entryList[index]){
+            if(entry.key.equals(key))   return entry.value;
+        }
+        return null;
+    }
 
     public static void main(String[] args) {
 
